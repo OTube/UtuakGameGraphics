@@ -9,7 +9,7 @@ Image format for games
 ```c
 int main(void){
     unsigned int size = encode("bytes_array", "tex.ugg", 2048);
-    char *arr = decode("tex.ugg", "bytes_array", 2048, size);
+    char *arr = decode("tex.ugg", 2048, size);
     free(arr);
     return 0;
 }
