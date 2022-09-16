@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *decode(char *from, unsigned int rsize, unsigned int fsize);
+unsigned char *decode(char *from, unsigned int rsize, unsigned int fsize);
 
 #endif // DECODE_H_INCLUDED
