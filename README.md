@@ -6,6 +6,7 @@ Image format for games
 #include "decode.h" //decode function
 ```
 ## Examples
+### Test
 ```c
 int main(void){
     unsigned int size = encode("bytes_array", "tex.ugg", 2048);
