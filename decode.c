@@ -1,6 +1,6 @@
 #include "decode.h"
 
-char *decode(char *from, unsigned int rsize, unsigned int fsize){
+unsigned char *decode(char *from, unsigned int rsize, unsigned int fsize){
     FILE *fl1 = fopen(from, "rb");
     if(fl1 == NULL) return NULL;
     unsigned char *userdata = (unsigned char*)malloc(rsize*rsize*4);
