@@ -3,7 +3,7 @@
 unsigned int encode(char *from, char *to, unsigned int rsize){
     FILE *fl1 = fopen(from, "rb");
     FILE *fl2 = fopen(to, "wb");
-    if(fl1 == NULL) return 1;
+    if(fl1 == NULL) return 0;
     unsigned int qr = rsize*rsize;
     unsigned char *userdata = (unsigned char*)malloc(qr*4);
     fread(userdata, qr*4, 1, fl1);
