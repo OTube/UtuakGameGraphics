@@ -14,3 +14,21 @@ int main(void){
     return 0;
 }
 ```
+```c
+void renderer_enable(render_conf *rc){
+    unsigned char *data = decode("tex.ugg", TEXTURE_SIZE_INT, filesize);
+    glEnable(GL_TEXTURE_2D);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glVertexPointer(2, GL_FLOAT, 0, rc->rectCoord);
+    glTexCoordPointer(2, GL_FLOAT, 0, rc->rectTex);
+    glGenTextures(1, &rc->texture);
+    glBindTexture(GL_TEXTURE_2D, rc->texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, TEXTURE_SIZE_INT, TEXTURE_SIZE_INT, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    free(data);
+}
+```
