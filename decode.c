@@ -1,8 +1,7 @@
 #include "decode.h"
 
-char *decode(char *from, char *to, unsigned int rsize, unsigned int fsize){
+char *decode(char *from, unsigned int rsize, unsigned int fsize){
     FILE *fl1 = fopen(from, "rb");
-    FILE *fl2 = fopen(to, "wb");
     if(fl1 == NULL) return 1;
     unsigned char *userdata = (unsigned char*)malloc(rsize*rsize*4);
     unsigned char s;
@@ -20,6 +19,5 @@ char *decode(char *from, char *to, unsigned int rsize, unsigned int fsize){
         readed += 5;
     }
     fclose(fl1);
-    fclose(fl2);
     return userdata;
 }
