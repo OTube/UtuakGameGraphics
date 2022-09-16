@@ -14,6 +14,7 @@ int main(void){
     return 0;
 }
 ```
+### OpenGL
 ```c
 void renderer_enable(render_conf *rc){
     unsigned char *data = decode("tex.ugg", TEXTURE_SIZE_INT, filesize);
