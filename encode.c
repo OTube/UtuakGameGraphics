@@ -34,9 +34,7 @@ unsigned int encode(char *from, char *to, unsigned int rsize){
             prev[2] = userdata[h*4+2];
             prev[3] = userdata[h*4+3];
             s = 0;
-        }else{
-            ++s;
-        }
+        }else ++s;
     }
     fclose(fl1);
     fclose(fl2);
