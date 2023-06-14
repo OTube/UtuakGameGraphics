@@ -1,12 +1,9 @@
 #include "encode.h"
 
-unsigned int encode(char *from, char *to, unsigned int rsize){
-    FILE *fl1 = fopen(from, "rb");
+void encode(unsigned char* userdata, char *to, unsigned int rsize){
     FILE *fl2 = fopen(to, "wb");
-    if(fl1 == NULL) return 0;
+    fseek(fl2, SEEK_SET, 4);
     unsigned int qr = rsize*rsize;
-    unsigned char *userdata = (unsigned char*)malloc(qr*4);
-    fread(userdata, qr*4, 1, fl1);
     unsigned char prev[4];
     unsigned char s = 0;
     unsigned int fsize = 0;
@@ -36,8 +33,7 @@ unsigned int encode(char *from, char *to, unsigned int rsize){
             s = 0;
         }else ++s;
     }
-    fclose(fl1);
+    fseek(fl2, SEEK_SET, 4);
+    fwrite(&fsize, 4, 1, fl2);
     fclose(fl2);
-    free(userdata);
-    return fsize;
 }
