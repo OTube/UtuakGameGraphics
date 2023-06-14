@@ -1,3 +1,4 @@
+docs deprecated
 # UtuakGameGraphics
 Image format for games
 ## Add to project
