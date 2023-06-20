@@ -2,7 +2,7 @@
 
 void encode(unsigned char* userdata, char *to, unsigned int rsize){
     FILE *fl2 = fopen(to, "wb");
-    fseek(fl2, SEEK_SET, 4);
+    fseek(fl2, 4, SEEK_SET);
     unsigned int qr = rsize*rsize;
     unsigned char prev[4];
     unsigned char s = 0;
@@ -33,7 +33,7 @@ void encode(unsigned char* userdata, char *to, unsigned int rsize){
             s = 0;
         }else ++s;
     }
-    fseek(fl2, SEEK_SET, 4);
+    fseek(fl2, 0, SEEK_SET);
     fwrite(&fsize, 4, 1, fl2);
     fclose(fl2);
 }
