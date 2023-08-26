@@ -1,9 +1,9 @@
 #include "encode.h"
 
-void encode(unsigned char* userdata, char *to, unsigned int rsize){
+void encode(unsigned char* userdata, char *to, unsigned int w, unsigned int h){
     FILE *fl2 = fopen(to, "wb");
     fseek(fl2, 4, SEEK_SET);
-    unsigned int qr = rsize*rsize;
+    unsigned int qr = w*h;
     unsigned char prev[4];
     unsigned char s = 0;
     unsigned int fsize = 0;
